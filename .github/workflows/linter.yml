@@ -1,0 +1,29 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - Asim-work
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+        
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+        
+    - name: Lint
+      run: |
+        pip install pylint
+        pylint --fail-under=3 **/*.py
+
+    - name: Build
+      run: python setup.py sdist bdist_wheel
+        
+    - name: Requirements
+      run: pip install -r requirement.txt
+      
+    - name: Run
+      run: python certsync/entry.py
