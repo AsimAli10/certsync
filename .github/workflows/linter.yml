@@ -24,3 +24,5 @@ jobs:
     - name: Requirements
       run: pip install -r requirement.txt
       
+    - name: Run
+      run: pylint entry.py
