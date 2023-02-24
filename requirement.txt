@@ -2,4 +2,11 @@ tqdm
 ldap3
 impacket
 certipy-ad==4.3.0
-
+argparse
+datetime
+logging
+random
+sys
+time 
+traceback
+typing 
