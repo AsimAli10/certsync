@@ -3,7 +3,7 @@ name: CI
 on:
   push:
     branches:
-      - Asim-work
+      Asim-work
 
 jobs:
   build:
@@ -18,7 +18,7 @@ jobs:
       run: |
         pip install pylint
         pylint --fail-under=3 **/*.py
-
+        
     - name: Build
       run: python setup.py sdist bdist_wheel
         
