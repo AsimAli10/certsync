@@ -3,7 +3,7 @@ name: CI
 on:
   push:
     branches:
-      Asim-work
+      main
 
 jobs:
   build:
