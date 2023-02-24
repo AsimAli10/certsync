@@ -1,17 +1,28 @@
-name: Super-Linter
+name: CI
 
-on: push
+on:
+  push:
+    branches:
+      - Noor-work
 
 jobs:
-  super-lint:
-    name: Lint code base
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+  build:
 
-      - name: Run Super-Linter
-        uses: github/super-linter@v4
-        env:
-          DEFAULT_BRANCH: main
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    runs-on: ubuntu-latest
+        
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+        
+    - name: Lint
+      run: |
+        pip install pylint
+        pylint --fail-under=3 **/*.py
+    - name: Build
+      run: python setup.py sdist bdist_wheel
+        
+    - name: Requirements
+      run: pip install -r requirement.txt
+      
+    - name: Run
+      run: python certsync/entry.py
