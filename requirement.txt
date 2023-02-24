@@ -1,6 +1,5 @@
 tqdm
 ldap3
 impacket
+certipy-ad==4.3.0
 certipy.lib
-certipy<=0.1.0
-
